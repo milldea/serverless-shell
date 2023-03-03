@@ -1,18 +1,18 @@
-# United Income at Capital One created this project with the intention of it helping us with Serverless Framework development and debugging. We have stopped providing updates to this project and archived it as of September 30th, 2021.
-
 # Serverless Shell
 
-[![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com)
-[![npm](https://nodei.co/npm/serverless-shell.png?mini=true)](https://www.npmjs.com/package/serverless-shell)
-
-A Serverless v1.x plugin to drop to a local shell with your environment
-variables from `serverless.yml`.
-
+See the original project for details.  
+https://github.com/capitalone/serverless-shell
 
 ## Install
 
 ```
-npm install --save serverless-shell
+cd ./{your project}
+# ssh
+git clone git@github.com:milldea/serverless-shell.git
+# https
+git clone https://github.com/milldea/serverless-shell.git
+cd serverless-shell
+npm i
 ```
 
 Add the plugin and set some env vars in your `serverless.yml`:
@@ -23,7 +23,9 @@ provider:
   environment:
     SOME_VAR: foobar
 plugins:
-  - serverless-shell
+  - ./serverless-shell
+custom:
+  shellBinary: zsh or bash and so on...
 ```
 
 ## Usage
