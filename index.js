@@ -108,14 +108,22 @@ class ServerlessLocalShell {
     if (this.serverless.service.provider.name === 'aws') {
       const {cachedCredentials} = this.serverless.getProvider('aws');
       if (cachedCredentials) {
-        enterpriseCredsEnvVars.AWS_ACCESS_KEY_ID =
-          cachedCredentials.accessKeyId;
-        enterpriseCredsEnvVars.AWS_SECRET_ACCESS_KEY =
-          cachedCredentials.secretAccessKey;
-        enterpriseCredsEnvVars.AWS_SESSION_TOKEN =
-          cachedCredentials.sessionToken;
-        enterpriseCredsEnvVars.AWS_REGION =
-          cachedCredentials.region;
+        if (cachedCredentials.accessKeyId) {
+          enterpriseCredsEnvVars.AWS_ACCESS_KEY_ID =
+            cachedCredentials.accessKeyId;
+        }
+        if (cachedCredentials.secretAccessKey) {
+          enterpriseCredsEnvVars.AWS_SECRET_ACCESS_KEY =
+            cachedCredentials.secretAccessKey;
+        }
+        if (cachedCredentials.sessionToken) {
+          enterpriseCredsEnvVars.AWS_SESSION_TOKEN =
+            cachedCredentials.sessionToken;
+        }
+        if (cachedCredentials.region) {
+          enterpriseCredsEnvVars.AWS_REGION =
+            cachedCredentials.region;
+        }
       }
     }
 
